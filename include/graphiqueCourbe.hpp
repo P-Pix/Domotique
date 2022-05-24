@@ -1,15 +1,22 @@
 #pragma once
 
-#define MAX_INDEX   24
+#define NOMBRE_HEURE    24
+#define MAX_INDEX   NOMBRE_HEURE
 
 #include <iostream>
+#include <gtkmm-3.0/gtkmm.h>
+#include <gtk-3.0/gtk/gtk.h>
 
 class GraphiqueCourbe {
 private:
     // indicateur de la position dans la liste, si le compteur est à 24 alors tout se décale d'un cran
-    short m_remplissage = 0;
+    unsigned short m_remplissage = 0;
+
     // liste des 24 valeurs
-    int m_listePointHeure[24];
+    int m_listePointHeure[MAX_INDEX];
+
+    // graphique
+    Gtk:
 
     // ajoute la valeure tout en déplaçant de une case
     void addMooving(int value);
@@ -26,6 +33,9 @@ public:
 
     // Visualisation du contenu de la liste
     void print(void);
+
+    // Genere la courbe avec les données entrées dedans
+    virtual void generateCourbe(void);
 
     // surcharge des <<
     friend std::ostream& operator<<(std::ostream &flux, GraphiqueCourbe g);
