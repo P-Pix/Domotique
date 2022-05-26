@@ -1,4 +1,4 @@
-#include "../../include/graphiqueCourbe.hpp"
+#include "../../include/graph/graphiqueCourbe.hpp"
 
 void GraphiqueCourbe::addValue(int value) {
     if (this->m_remplissage == MAX_INDEX) {
@@ -10,6 +10,16 @@ void GraphiqueCourbe::addValue(int value) {
         this->m_remplissage++;
     }
     std::cout << "Valeur " << value << " ajouté à la liste" << std::endl;
+}
+
+std::string GraphiqueCourbe::listToString(void) {
+    std::string liste;
+    int i;
+    for (i = 0; i < MAX_INDEX; i++) {
+        liste += std::to_string(this->m_listePointHeure[i]);
+        liste += " ";
+    }
+    return liste;
 }
 
 void GraphiqueCourbe::addMooving(int value) {

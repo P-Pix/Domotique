@@ -4,8 +4,7 @@
 #define MAX_INDEX   NOMBRE_HEURE
 
 #include <iostream>
-#include <gtkmm-3.0/gtkmm.h>
-#include <gtk-3.0/gtk/gtk.h>
+#include <syscall.h>
 
 class GraphiqueCourbe {
 private:
@@ -15,15 +14,15 @@ private:
     // liste des 24 valeurs
     int m_listePointHeure[MAX_INDEX];
 
-    // graphique
-    Gtk:
-
     // ajoute la valeure tout en déplaçant de une case
     void addMooving(int value);
 
 public:
     // Constructeur par defaut
     GraphiqueCourbe(void);
+
+    // Destructeur par defaut
+    ~GraphiqueCourbe(void);
 
     // ajoute une valeur à la liste si elle est pleine elle est décalé d'un cran et ajoute à la fin la valeur
     void addValue(int value);
@@ -34,8 +33,14 @@ public:
     // Visualisation du contenu de la liste
     void print(void);
 
+    // graphique
+    void createGraph(void);
+
+    // retourne la liste des valeur en string
+    std::string listToString(void);
+
     // Genere la courbe avec les données entrées dedans
-    virtual void generateCourbe(void);
+    // virtual void generateCourbe(void);
 
     // surcharge des <<
     friend std::ostream& operator<<(std::ostream &flux, GraphiqueCourbe g);

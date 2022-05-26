@@ -1,7 +1,7 @@
 #include <iostream>
-#include "../include/graphiqueCourbe.hpp"
+#include "../include/graph/graphiqueCourbe.hpp"
 
-#include <gtkmm-3.0/gtkmm.h>
+//#include <gtkmm-3.0/gtkmm.h>
 
 /*
 class HelloWorld : public Gtk::Window
@@ -62,10 +62,9 @@ int main(int argc, char **argv) {
     for (int i = 1; i < MAX_INDEX + 45; i++) {
         g.addValue(i*i);
     }
-    g.print();
+    g.createGraph();
     for (int i = 0; i < 3; i++) {
         g.removeValue(i * i);
     }
-    std::cout << g << std::endl;
     return EXIT_SUCCESS;
 }

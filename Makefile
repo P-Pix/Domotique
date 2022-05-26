@@ -20,6 +20,9 @@ compile:
 run:
 	./$(BIN) && echo "Running succes" || echo "Running failled"
 
+valgrind:
+	@valgrind ./$(BIN) && echo "Running succes" || echo "Running failled"
+
 delete:
 	@echo "Deleting ..."
 	rm -rf bin/*
